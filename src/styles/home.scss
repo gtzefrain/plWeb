@@ -1,167 +1,254 @@
 body,
 html {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 #main {
-    height: 100vh;
-    background-image: url("https://i.imgur.com/ldcS5r4.jpg");
-    background-repeat: no-repeat, repeat;
-    background-position: center center;
+  height: 100vh;
+  background-image: url("https://i.imgur.com/ldcS5r4.jpg");
+  background-repeat: no-repeat, repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column; /* make main axis vertical */
+  justify-content: center; /* center items vertically, in this case */
+  align-items: center;
+  #logo {
+    padding: 2rem;
+    height: 50vh;
     display: flex;
-    flex-direction: column; /* make main axis vertical */
-    justify-content: center; /* center items vertically, in this case */
+    justify-content: center;
     align-items: center;
-    #logo {
-        padding: 2rem;
-        height: 50vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-            height: auto;
-            width: 100%;
-            @media (min-width: $mobile) {
-                width: 85%;
-            }
-            @media (min-width: $desktop) {
-                width: 75%;
-            }
-        }
+    img {
+      height: auto;
+      width: 100%;
+      @media (min-width: $mobile) {
+        width: 85%;
+      }
+      @media (min-width: $desktop) {
+        width: 75%;
+      }
     }
+  }
 }
 #singles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  // mobile
+  & img.single-cover {
+    height: 16rem;
+    width: 16rem;
+  }
+  // desktop
+  .single-container {
+    text-align: center;
+    height: 60vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 2rem;
-    // mobile
-    & img.single-cover {
-        height: 16rem;
-        width: 16rem;
-    }
-    // desktop
-    .single-container {
-        text-align: center;
-        height: 60vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
+  }
 }
 
 .scroll-bottom {
-    width: 100%;
+  width: 100%;
 }
 
 @keyframes bouncing {
-    0% {
-        bottom: 0;
-    }
-    50% {
-        bottom: 20px;
-    }
-    100% {
-        bottom: 0;
-    }
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes bouncingCenter {
+  0% {
+    margin-left: -5px;
+  }
+  50% {
+    margin-left: 5px;
+  }
+  100% {
+    margin-left: -5px;
+  }
 }
 
 .arrow {
-    animation: bouncing 1.5s infinite ease-in-out;
-    bottom: 0;
-    display: block;
-    height: 100px;
-    left: 50%;
-    margin-left: -50px;
-    position: absolute;
-    width: 100px;
+  animation: bouncing 2s infinite ease-in-out;
+  bottom: 0;
+  display: block;
+  height: 100px;
+  margin-left: -50px;
+  position: absolute;
+  width: 100px;
 }
 
-$cyan: #007ae5;
+$main: #ffffff;
+$secondary: #eeeeee;
 $tiles: 5;
 
 body {
-    background-color: #eee;
+  background-color: $secondary;
 }
 
 .wrapper {
-    .page {
-        height: 100vh;
-        text-align: center;
-    }
-
-    button {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+  height: 100vh;
+  text-align: center;
 }
 
 .loader {
-    $parent: &;
+  $parent: &;
 
-    position: fixed;
-    z-index: 999;
-    top: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  transition: width 0s 1.4s ease;
+
+  #{$parent}__icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    svg {
+      transform-origin: 0 0;
+    }
+  }
+
+  #{$parent}__tile {
+    position: absolute;
     left: 0;
     width: 0;
-    height: 100vh;
-    transition: width 0s 0.7s ease;
+    height: 20%;
+    background-color: $main;
+    transition: width 0.7s ease;
+
+    @for $i from 0 through $tiles {
+      &:nth-child(#{$i}) {
+        top: calc(#{$i - 1} * 20%);
+        transition-delay: #{($i - 1) * 0.2s};
+      }
+    }
+  }
+
+  &--active {
+    width: 100%;
+    transition-delay: 0s;
 
     #{$parent}__icon {
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        opacity: 0;
-        transition: opacity 0.25s ease;
-
-        svg {
-            transform-origin: 0 0;
-        }
+      opacity: 1;
+      transition: opacity 0.5s 1.4s ease;
     }
 
     #{$parent}__tile {
-        position: absolute;
-        left: 0;
-        width: 0;
-        height: 20%;
-        background-color: $cyan;
-        transition: width 0.35s ease;
+      width: 100%;
 
-        @for $i from 0 through $tiles {
-            &:nth-child(#{$i}) {
-                top: calc(#{$i - 1} * 20%);
-                transition-delay: #{($i - 1) * 0.1s};
-            }
+      @for $i from 0 through $tiles {
+        &:nth-child(#{$i}) {
+          transition-delay: #{($i - 1) * 0.2s};
         }
+      }
     }
-
-    &--active {
-        width: 100%;
-        transition-delay: 0s;
-
-        #{$parent}__icon {
-            opacity: 1;
-            transition: opacity 0.5s 0.7s ease;
-        }
-
-        #{$parent}__tile {
-            width: 100%;
-
-            @for $i from 0 through $tiles {
-                &:nth-child(#{$i}) {
-                    transition-delay: #{($i - 1) * 0.1s};
-                }
-            }
-        }
-    }
+  }
 }
-.page{
-    display: none;
-    &.active{
-        display: block;
+
+.page {
+  display: none;
+  &.active {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    p {
     }
+    .btn {
+      margin: 0 auto;
+      margin-top: 5rem;
+      .pix-arrow {
+        height: 30px;
+        position: relative;
+        width: auto;
+        animation: bouncingCenter 2s infinite ease-in-out;
+      }
+    }
+    .main-cta {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+#page-2 {
+  background-image: url(https://media.giphy.com/media/l0HlP10F4kClGe3g4/giphy.gif);
+  background-size: cover;
+  background-position: center;
+}
+#page-3 {
+  .text-editor-wrap {
+    margin-bottom: 5rem;
+  }
+  & #main-button {
+    padding: 2rem;
+    position: relative;
+    background: white;
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+    &.neon {
+      background: white;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        background: linear-gradient(
+          45deg,
+          #fb0094,
+          #0000ff,
+          #00ff00,
+          #ffff00,
+          #ff0000,
+          #fb0094,
+          #0000ff,
+          #00ff00,
+          #ffff00,
+          #ff0000
+        );
+        background-size: 400%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        z-index: -1;
+        animation: steam 20s linear infinite;
+      }
+
+      @keyframes steam {
+        0% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 400% 0;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+
+      &:after {
+        filter: blur(50px);
+      }
+    }
+  }
 }

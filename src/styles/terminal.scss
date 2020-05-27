@@ -1,0 +1,40 @@
+.text-editor-wrap {
+    display: block;
+    margin: 0 auto;
+    width: 60vw;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 40px 50px;
+    clear: both;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.title-bar{
+    padding: 5px 0;
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 0.75em;
+    text-align: center;
+    text-shadow: rgba($main, 0.8) 0px 1px 0px;
+    background-color: $main;
+    background-image: -webkit-linear-gradient(top, #e8e8e8, #bcbbbc);
+    background-image: -moz-linear-gradient(top, #e8e8e8, #bcbbbc);
+    background-image: linear-gradient(top, #e8e8e8, #bcbbbc);
+    box-shadow: inset rgba($main, 0.7) 0px 1px 1px;
+    border-bottom: #6a6a6a 1px solid;
+}
+
+.text-body{
+    background-color: white;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: "Consolas", "Courier New", "Courier";
+    font-size: 1.45em;
+    line-height: 1.40em;
+    font-weight: 500;
+    text-align: left;
+    overflow: hidden;
+    min-height: 30vh;
+}
