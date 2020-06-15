@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "styles": "webpack --watch ",
-    "build": "node app.js "
+    "dev": "webpack --watch && node app.js",
+    "start": "node app.js",
+    "build": "webpack"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
