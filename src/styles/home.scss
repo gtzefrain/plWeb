@@ -2,6 +2,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-family: "Consolas", "Courier New", "Courier";
 }
 #main {
   height: 100vh;
@@ -111,7 +112,7 @@ body {
   left: 0;
   width: 0;
   height: 100vh;
-  transition: width 0s 1.4s ease;
+  transition: width 0s 2s ease;
 
   #{$parent}__icon {
     position: absolute;
@@ -121,7 +122,6 @@ body {
     transform: translateX(-50%) translateY(-50%);
     opacity: 0;
     transition: opacity 0.5s ease;
-
     svg {
       transform-origin: 0 0;
     }
@@ -183,6 +183,11 @@ body {
         position: relative;
         width: auto;
         animation: bouncingCenter 2s infinite ease-in-out;
+        &:hover,
+        :active,
+        :focus {
+          box-shadow: rgba(255, 161, 21, 0.3) 0px 40px 50px;
+        }
       }
     }
     .main-cta {
@@ -191,69 +196,157 @@ body {
     }
   }
 }
-#page-2 {
+#page-1 {
+  .headphone {
+    padding: 1rem;
+    height: 90%;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 40px 50px;
+    &:hover,
+    :active,
+    :focus {
+      box-shadow: rgba(255, 161, 21, 0.3) 0px 40px 50px;
+    }
+    margin-left: 43px;
+  }
+  /* Make the badge float in the top right corner of the button */
+  .button__badge {
+    transition: 2s;
+    background-color: $orange;
+    border-radius: 50%;
+    padding: 11px 16px;
+    left: -6vw;
+    top: -28vh;
+    color: white;
+    font-size: 1.1rem;
+    position: relative;
+    left: -5vw;
+    top: -28vh;
+    opacity: 1;
+    z-index: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 32px;
+    display: inline-block;
+    @media (min-width: 650px) {
+      left: -4vw;
+      top: -29vh;
+    }
+    @media (min-width: $tablet) {
+      left: -3vw;
+      top: -28vh;
+    }
+  }
+  @media (max-width: 327px) {
+    .button__badge {
+      position: absolute !important;
+      left: auto;
+      top: auto;
+      right: 18%;
+    }
+    .headphone {
+      margin-left: 0px;
+    }
+  }
+
+  .headphone-container {
+    transition: 2s;
+    height: 30vh;
+  }
+  .small {
+    height: 5vh;
+  }
+
+  #btn-init {
+    transition: 2s;
+  }
+
+  .heartbeat {
+    -webkit-animation: heartbeat 4s ease-in 1.5s infinite both;
+    animation: heartbeat 4s ease-in 1.5s infinite both;
+  }
+
+  .hide {
+    opacity: 0;
+  }
+}
+#page-3 {
   background-image: url(https://media.giphy.com/media/l0HlP10F4kClGe3g4/giphy.gif);
   background-size: cover;
   background-position: center;
+
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 2rem;
+  }
+
+  p {
+    max-width: 255px;
+    word-wrap: break-word;
+    margin-bottom: 12px;
+    line-height: 24px;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 25px;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      height: 20px;
+    }
+  }
+
+  .from-me {
+    color: white;
+    background: $orange;
+    align-self: flex-end;
+
+    // &:before {
+    //   right:-7px;
+    //   border-right:20px solid #0B93F6;
+    //   border-bottom-left-radius: 16px 14px;
+    //   transform:translate(0, -2px);
+    // }
+
+    // &:after {
+    //   right:-56px;
+    //   width:26px;
+    //   background:white;
+    //   border-bottom-left-radius: 10px;
+    //   transform:translate(-30px, -2px);
+    // }
+  }
+  .from-them {
+    background: $secondary;
+    color: black;
+
+    // &:before {
+    //   left:-7px;
+    //   border-left:20px solid #E5E5EA;
+    //   border-bottom-right-radius: 16px 14px;
+    //   transform:translate(0, -2px);
+    // }
+
+    // &:after {
+    //   left:4px;
+    //   width:26px;
+    //   background:white;
+    //   border-bottom-right-radius: 10px;
+    //   transform:translate(-30px, -2px);
+    // }
+  }
 }
-#page-3 {
+#page-4 {
   .text-editor-wrap {
     margin-bottom: 5rem;
   }
-  & #main-button {
-    padding: 2rem;
-    position: relative;
-    background: white;
-    border-radius: 30px;
-    opacity: 1;
-    transition: opacity 0.5s ease-in;
-    &.neon {
-      background: white;
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        left: -2px;
-        top: -2px;
-        border-radius: 30px;
-        background: linear-gradient(
-          45deg,
-          #fb0094,
-          #0000ff,
-          #00ff00,
-          #ffff00,
-          #ff0000,
-          #fb0094,
-          #0000ff,
-          #00ff00,
-          #ffff00,
-          #ff0000
-        );
-        background-size: 400%;
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
-        z-index: -1;
-        animation: steam 20s linear infinite;
-      }
-
-      @keyframes steam {
-        0% {
-          background-position: 0 0;
-        }
-        50% {
-          background-position: 400% 0;
-        }
-        100% {
-          background-position: 0 0;
-        }
-      }
-
-      &:after {
-        filter: blur(50px);
-      }
-    }
+  .text-body {
+    min-height: 13vh;
   }
-  .redes{
+  .redes {
     display: flex;
     text-align: center;
     align-content: center;
@@ -272,6 +365,368 @@ body {
 
   /* Add a hover effect if you want */
   .fa:hover {
+    color: $orange;
     opacity: 0.7;
+  }
+}
+
+.main-button {
+  padding: 2rem;
+  position: relative;
+  background: white;
+  border-radius: 30px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.neon {
+  background: white;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border-radius: 30px;
+    background: linear-gradient(
+      45deg,
+      #fb0094,
+      #0000ff,
+      #00ff00,
+      #ffff00,
+      #ff0000,
+      #fb0094,
+      #0000ff,
+      #00ff00,
+      #ffff00,
+      #ff0000
+    );
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: steam 20s linear infinite;
+  }
+
+  @keyframes steam {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  &:after {
+    filter: blur(50px);
+  }
+}
+
+.flicker-in-1 {
+  -webkit-animation: flicker-in-1 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) both;
+  animation: flicker-in-1 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-6-11 22:24:28
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * @animation flicker-in-1
+ * ----------------------------------------
+ */
+@-webkit-keyframes flicker-in-1 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10.1% {
+    opacity: 1;
+  }
+  10.2% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20.1% {
+    opacity: 1;
+  }
+  20.6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30.1% {
+    opacity: 1;
+  }
+  30.5% {
+    opacity: 1;
+  }
+  30.6% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  45.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55.1% {
+    opacity: 0;
+  }
+  57% {
+    opacity: 0;
+  }
+  57.1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.1% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  65.1% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  77.1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85.1% {
+    opacity: 0;
+  }
+  86% {
+    opacity: 0;
+  }
+  86.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flicker-in-1 {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  10.1% {
+    opacity: 1;
+  }
+  10.2% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  20.1% {
+    opacity: 1;
+  }
+  20.6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  30.1% {
+    opacity: 1;
+  }
+  30.5% {
+    opacity: 1;
+  }
+  30.6% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  45.1% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 1;
+  }
+  55.1% {
+    opacity: 0;
+  }
+  57% {
+    opacity: 0;
+  }
+  57.1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  60.1% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  65.1% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  75.1% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  77.1% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85.1% {
+    opacity: 0;
+  }
+  86% {
+    opacity: 0;
+  }
+  86.1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* ----------------------------------------------
+ * Generated by Animista on 2020-6-14 13:14:19
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation heartbeat
+ * ----------------------------------------
+ */
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes bg {
+  0% {
+    background-size: 0 3px, 3px 0, 0 3px, 3px 0;
+  }
+  25% {
+    background-size: 100% 3px, 3px 0, 0 3px, 3px 0;
+  }
+  50% {
+    background-size: 100% 3px, 3px 100%, 0 3px, 3px 0;
+  }
+  75% {
+    background-size: 100% 3px, 3px 100%, 100% 3px, 3px 0;
+  }
+  100% {
+    background-size: 100% 3px, 3px 100%, 100% 3px, 3px 100%;
   }
 }

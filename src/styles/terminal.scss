@@ -1,9 +1,8 @@
 .text-editor-wrap {
     display: block;
     margin: 0 auto;
-    width: 60vw;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 40px 50px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 40px 50px;
     clear: both;
     overflow: hidden;
     -webkit-transition: all 0.5s ease-out;
@@ -11,6 +10,10 @@
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
+    width: 60vw;
+    @media (max-width: $mobile) {
+        width: 80vw !important;
+    }
 }
 .title-bar{
     padding: 5px 0;
@@ -37,4 +40,7 @@
     text-align: left;
     overflow: hidden;
     min-height: 30vh;
+    @media (min-width: $tablet) and (   max-width: $desktop) {
+        min-height: 40vh;
+    }
 }
