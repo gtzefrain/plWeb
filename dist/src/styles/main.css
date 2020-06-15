@@ -6,6 +6,7 @@ html {
 
 #main {
   height: 100vh;
+  max-height: -webkit-fill-available;
   background-image: url("https://i.imgur.com/ldcS5r4.jpg");
   background-repeat: no-repeat, repeat;
   background-position: center center;
@@ -97,6 +98,7 @@ body {
 
 .wrapper {
   height: 100vh;
+  max-height: -webkit-fill-available;
   text-align: center; }
 
 .loader {
@@ -106,6 +108,7 @@ body {
   left: 0;
   width: 0;
   height: 100vh;
+  max-height: -webkit-fill-available;
   transition: width 0s 2s ease; }
   .loader .loader__icon {
     position: absolute;
@@ -167,6 +170,7 @@ body {
   display: none; }
   .page.active {
     height: 100vh;
+    max-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -255,6 +259,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    max-height: -webkit-fill-available;
     padding: 2rem; }
   #page-3 p {
     max-width: 255px;
@@ -317,7 +322,7 @@ body {
     left: -2px;
     top: -2px;
     border-radius: 30px;
-    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background: linear-gradient(to left, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
     background-size: 400%;
     width: calc(100% + 4px);
     height: calc(100% + 4px);
@@ -572,7 +577,7 @@ body {
   display: block;
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 40px 50px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 40px 30px;
   clear: both;
   overflow: hidden;
   transition: all 0.5s ease-out;

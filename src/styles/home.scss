@@ -6,6 +6,7 @@ html {
 }
 #main {
   height: 100vh;
+  max-height: -webkit-fill-available;
   background-image: url("https://i.imgur.com/ldcS5r4.jpg");
   background-repeat: no-repeat, repeat;
   background-position: center center;
@@ -100,6 +101,7 @@ body {
 
 .wrapper {
   height: 100vh;
+  max-height: -webkit-fill-available;
   text-align: center;
 }
 
@@ -112,6 +114,7 @@ body {
   left: 0;
   width: 0;
   height: 100vh;
+  max-height: -webkit-fill-available;
   transition: width 0s 2s ease;
 
   #{$parent}__icon {
@@ -168,6 +171,7 @@ body {
   display: none;
   &.active {
     height: 100vh;
+    max-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -278,6 +282,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    max-height: -webkit-fill-available;
     padding: 2rem;
   }
 
@@ -389,7 +394,7 @@ body {
     top: -2px;
     border-radius: 30px;
     background: linear-gradient(
-      45deg,
+      to left,
       #fb0094,
       #0000ff,
       #00ff00,
