@@ -4,7 +4,6 @@ import Typed from 'typed.js';
 
 function addNeon() {
   const currentElement = document.getElementById('main-button');
-  console.log('button', currentElement);
   currentElement.classList.add('neon');
 }
 
@@ -31,7 +30,7 @@ let options = [{
 
 function addMessages(messages) {
   // let counter = 0
-  let container = document.querySelector(".chat-container");
+  let container = document.querySelector(".chat");
   // for (let index = 0; index < messages.length; index++) {
   //   window.setTimeout(function () {
   //     var paragraph = document.createElement("P");
@@ -40,22 +39,28 @@ function addMessages(messages) {
   //     container.appendChild(node)
   //   }, 1000);
   // }
+  setTimeout(function () {
+    let phone = document.querySelector(".phone-container");
+    phone.classList.add('show')
+    let chat = document.querySelector(".chat-container");
+    chat.classList.add('show')
+    var counter = 0;
+    var interval = setInterval(function () {
+      if (counter <= messages.length - 1) {
+        var paragraph = document.createElement("P");
+        var node = document.createTextNode(messages[counter]);
+        paragraph.appendChild(node)
+        paragraph.classList.add(counter % 2 === 0 ? 'from-me' : 'from-them')
+        container.appendChild(paragraph)
 
-  var counter = 0;
-  var interval = setInterval(function () {
-    if (counter <= messages.length - 1) {
-      var paragraph = document.createElement("P");
-      var node = document.createTextNode(messages[counter]);
-      paragraph.appendChild(node)
-      paragraph.classList.add(counter % 2 === 0 ? 'from-me' : 'from-them')
-      container.appendChild(paragraph)
-    } else {
-      clearInterval(interval);
-      console.log('letfuckinggoooo');
-      swipe()
-    }
-    counter++;
-  }, 1500);
+      } else {
+        clearInterval(interval);
+        console.log('letfuckinggoooo');
+        swipe() 
+      }
+      counter++;
+    }, 2000);
+  }, 31000);
 }
 const on = (element, event, selector, handler) => {
   element.addEventListener(event, e => {
@@ -104,7 +109,7 @@ function updateCounter() {
     const nextElement = document.getElementById(`page-${counter}`);
     nextElement.classList.add('active')
     if (counter === 3) {
-      window.setTimeout(addMessages(messages),  2500);
+      addMessages(messages);
     } else {
       window['page-' + counter + -'text'] = new Typed(`#page-${counter}-text`, options[counter - 1]);
     }
@@ -123,13 +128,13 @@ on(document, 'click', '.btn', e => {
   swipe()
 });
 on(document, 'click', '.down-btn', e => {
-const element = document.querySelector('#final')
-const topPos = element.getBoundingClientRect().top + window.pageYOffset
+  const element = document.querySelector('#final')
+  const topPos = element.getBoundingClientRect().top + window.pageYOffset
 
-window.scrollTo({
-  top: topPos, // scroll so that the element is at the top of the view
-  behavior: 'smooth' // smooth scroll
-})
+  window.scrollTo({
+    top: topPos, // scroll so that the element is at the top of the view
+    behavior: 'smooth' // smooth scroll
+  })
 
 });
 
