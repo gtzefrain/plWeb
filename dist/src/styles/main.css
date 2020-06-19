@@ -637,7 +637,7 @@ body {
     background-color: rgba(238, 238, 238, 0.5) !important; } }
 
 .video-background {
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -655,13 +655,15 @@ body {
   position: absolute;
   justify-content: center;
   align-items: center; }
+  .chat-container.hide {
+    display: none; }
   .chat-container .chat {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    height: 77%;
+    height: 80%;
     border-radius: 62px;
-    width: 254px;
+    width: 295px;
     max-height: -webkit-fill-available;
     padding-left: 3rem;
     padding-right: 3rem;

@@ -6,13 +6,13 @@ function addNeon() {
   const currentElement = document.getElementById('main-button');
   currentElement.classList.add('neon');
 }
-let messages = ['Estamos felices!', 'Al fin podemos compartir esto con ustedes','Pronto nos veremos a ver las caras', 'Ustedes están listos?'];
+let messages = ['Estamos muy felices!', 'Al fin podemos compartir esto con ustedes <3','Pronto nos volveremos a ver las caras', 'Ustedes están listos?'];
 
 let options = [{
   strings: [''],
   typeSpeed: 40
 }, {
-  strings: ['hola. ^500 gracias por formar parte del incio de esto. ^500 fue un proceso largo pero divertido', '^500 Haz click en la fecla para ver un poco más :)'],
+  strings: ['hola. ^500 gracias por formar parte del inicio de esto. ^500 fue un proceso largo pero divertido', '^500 Haz click en la flecha para ver un poco más :)'],
   typeSpeed: 40,
   backSpeed: 10,
 }, {
@@ -43,6 +43,7 @@ function addMessages(messages) {
     phone.classList.add('show')
     let chat = document.querySelector(".chat-container");
     chat.classList.add('show')
+    chat.classList.remove('hide')
     var counter = 0;
     var interval = setInterval(function () {
       if (counter <= messages.length - 1) {
@@ -59,7 +60,7 @@ function addMessages(messages) {
       }
       counter++;
     }, 2500);
-  }, 31000);
+  }, 30000);
 }
 const on = (element, event, selector, handler) => {
   element.addEventListener(event, e => {
