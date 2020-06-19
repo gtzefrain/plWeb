@@ -167,6 +167,20 @@ body {
   }
 }
 
+.logo_home{
+  position: absolute;
+  bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 100px;
+}
+
+.logo_ep{
+  max-width: 200px;
+}
+
 .page {
   display: none;
   &.active {
@@ -234,7 +248,7 @@ body {
       top: -29vh;
     }
     @media (min-width: $tablet) {
-      left: -4vw;
+      left: -50px;
       top: -28vh;
     }
   }
@@ -275,7 +289,7 @@ body {
   // background-image: url(https://media.giphy.com/media/l0HlP10F4kClGe3g4/giphy.gif);
   // background-size: cover;
   // background-position: center;
-
+  overflow: hidden;
   p {
     max-width: 135px;
     word-wrap: break-word;
@@ -369,7 +383,7 @@ body {
   padding: 2rem;
   position: relative;
   background: white;
-  border-radius: 30px;
+  // border-radius: 30px;
   opacity: 1;
   transition: opacity 0.5s ease-in;
 }
@@ -382,7 +396,7 @@ body {
     position: absolute;
     left: -2px;
     top: -2px;
-    border-radius: 30px;
+    // border-radius: 30px;
     background: linear-gradient(
       to left,
       #fb0094,

@@ -6,14 +6,13 @@ function addNeon() {
   const currentElement = document.getElementById('main-button');
   currentElement.classList.add('neon');
 }
-
-let messages = ['este es uno', 'este es otro', 'el tercero', 'ahi va otra', 'yamerito?', 'fuga'];
+let messages = ['Estamos felices!', 'Al fin podemos compartir esto con ustedes','Pronto nos veremos a ver las caras', 'Ustedes están listos?'];
 
 let options = [{
   strings: [''],
   typeSpeed: 40
 }, {
-  strings: ['hola. ^500 esperamos que estes bien. ^500 queremos compartir algo contigo...', 'fue un proceso largo.^500 vivimos alejados un poco el uno del otro.^500 asi que usamo el poder del internet...'],
+  strings: ['hola. ^500 gracias por formar parte del incio de esto. ^500 fue un proceso largo pero divertido', '^500 Haz click en la fecla para ver un poco más :)'],
   typeSpeed: 40,
   backSpeed: 10,
 }, {
@@ -59,7 +58,7 @@ function addMessages(messages) {
         swipe() 
       }
       counter++;
-    }, 2000);
+    }, 2500);
   }, 31000);
 }
 const on = (element, event, selector, handler) => {

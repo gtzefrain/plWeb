@@ -166,6 +166,18 @@ body {
       .loader--active .loader__tile:nth-child(5) {
         transition-delay: 0.8s; }
 
+.logo_home {
+  position: absolute;
+  bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 100px; }
+
+.logo_ep {
+  max-width: 200px; }
+
 .page {
   display: none; }
   .page.active {
@@ -226,7 +238,7 @@ body {
         top: -29vh; } }
     @media (min-width: 768px) {
       #page-1 .button__badge {
-        left: -4vw;
+        left: -50px;
         top: -28vh; } }
   @media (max-width: 327px) {
     #page-1 .button__badge {
@@ -249,28 +261,28 @@ body {
   #page-1 .hide {
     opacity: 0; }
 
-#page-3 p {
-  max-width: 135px;
-  word-wrap: break-word;
-  margin-bottom: 12px;
-  line-height: 24px;
-  position: relative;
-  padding: 10px 20px;
-  border-radius: 25px; }
-  #page-3 p:before, #page-3 p:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    height: 20px; }
-
-#page-3 .from-me {
-  color: white;
-  background: #ef6d50;
-  align-self: flex-end; }
-
-#page-3 .from-them {
-  background: white;
-  color: black; }
+#page-3 {
+  overflow: hidden; }
+  #page-3 p {
+    max-width: 135px;
+    word-wrap: break-word;
+    margin-bottom: 12px;
+    line-height: 24px;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 25px; }
+    #page-3 p:before, #page-3 p:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      height: 20px; }
+  #page-3 .from-me {
+    color: white;
+    background: #ef6d50;
+    align-self: flex-end; }
+  #page-3 .from-them {
+    background: white;
+    color: black; }
 
 #page-4 {
   /* Style all font awesome icons */
@@ -300,7 +312,6 @@ body {
   padding: 2rem;
   position: relative;
   background: white;
-  border-radius: 30px;
   opacity: 1;
   transition: opacity 0.5s ease-in; }
 
@@ -311,7 +322,6 @@ body {
     position: absolute;
     left: -2px;
     top: -2px;
-    border-radius: 30px;
     background: linear-gradient(to left, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
     background-size: 400%;
     width: calc(100% + 4px);
@@ -649,9 +659,9 @@ body {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 77%;
     border-radius: 62px;
-    width: 332px;
+    width: 254px;
     max-height: -webkit-fill-available;
     padding-left: 3rem;
     padding-right: 3rem;
