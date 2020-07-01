@@ -222,6 +222,7 @@ body {
           opacity: 1;
           -webkit-transition: opacity 600ms, visibility 600ms;
           transition: opacity 600ms, visibility 600ms;
+          cursor: pointer;
           &.hide {
             opacity: 0;
           }
