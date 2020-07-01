@@ -191,6 +191,12 @@ body {
     .page.active .btn {
       margin: 0 auto;
       margin-top: 5rem; }
+      .page.active .btn.top {
+        z-index: 99;
+        position: absolute;
+        top: 2vh;
+        right: 4vw;
+        margin: auto; }
       .page.active .btn .pix-arrow {
         height: 30px;
         position: relative;
@@ -201,6 +207,16 @@ body {
         .page.active .btn .pix-arrow :active,
         .page.active .btn .pix-arrow :focus {
           box-shadow: rgba(255, 161, 21, 0.3) 0px 40px 50px; }
+        .page.active .btn .pix-arrow.video {
+          background-color: #ffffff4d;
+          line-height: 30px;
+          color: #eeeeee;
+          padding-left: 4px;
+          padding-right: 4px;
+          opacity: 1;
+          transition: opacity 600ms, visibility 600ms; }
+          .page.active .btn .pix-arrow.video.hide {
+            opacity: 0; }
     .page.active .main-cta {
       display: flex;
       justify-content: center; }
@@ -290,13 +306,13 @@ body {
   #page-4 .text-editor-wrap {
     margin-bottom: 5rem; }
   #page-4 .text-body {
-    min-height: 13vh; }
+    min-height: 17vh; }
   #page-4 .redes {
     display: flex;
     text-align: center;
     align-content: center;
     justify-content: space-evenly;
-    padding-top: 4rem; }
+    padding-top: 3rem; }
   #page-4 .fa {
     padding: 20px;
     font-size: 30px;
@@ -607,10 +623,10 @@ body {
   font-weight: 500;
   text-align: left;
   overflow: hidden;
-  min-height: 30vh; }
+  min-height: 40vh; }
   @media (min-width: 768px) and (max-width: 1200px) {
     .text-body {
-      min-height: 40vh; } }
+      min-height: 45vh; } }
 
 .phone-container {
   width: 100vw;
@@ -663,7 +679,7 @@ body {
     flex-direction: column;
     height: 80%;
     border-radius: 62px;
-    width: 295px;
+    width: 34vh;
     max-height: -webkit-fill-available;
     padding-left: 3rem;
     padding-right: 3rem;
@@ -671,3 +687,7 @@ body {
     padding-top: 7rem;
     background: transparent;
     transition: opacity 600ms, visibility 600ms; }
+    @media (max-width: 468px) {
+      .chat-container .chat {
+        margin: auto;
+        padding: initial; } }

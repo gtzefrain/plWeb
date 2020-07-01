@@ -21,10 +21,10 @@
         visibility: visible;
         opacity: 1;
     }
-    .chat{
+    .chat {
         @media (min-width: $mobile) {
-         background-color: rgba(238, 238, 238, 0.5) !important;
-        }  
+            background-color: rgba(238, 238, 238, 0.5) !important;
+        }
     }
 }
 .video-background {
@@ -44,7 +44,7 @@
     position: absolute;
     justify-content: center;
     align-items: center;
-    &.hide{
+    &.hide {
         display: none;
     }
     .chat {
@@ -53,7 +53,7 @@
         flex-direction: column;
         height: 80%;
         border-radius: 62px;
-        width: 295px;
+        width: 34vh;
         max-height: -webkit-fill-available;
         padding-left: 3rem;
         padding-right: 3rem;
@@ -62,5 +62,9 @@
         background: transparent;
         -webkit-transition: opacity 600ms, visibility 600ms;
         transition: opacity 600ms, visibility 600ms;
+        @media (max-width: $mobile) {
+            margin: auto;
+            padding: initial;
+        }
     }
 }

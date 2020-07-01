@@ -167,7 +167,7 @@ body {
   }
 }
 
-.logo_home{
+.logo_home {
   position: absolute;
   bottom: 25px;
   margin-left: auto;
@@ -177,7 +177,7 @@ body {
   width: 100px;
 }
 
-.logo_ep{
+.logo_ep {
   max-width: 200px;
 }
 
@@ -196,6 +196,13 @@ body {
     .btn {
       margin: 0 auto;
       margin-top: 5rem;
+      &.top {
+        z-index: 99;
+        position: absolute;
+        top: 2vh;
+        right: 4vw;
+        margin: auto;
+      }
       .pix-arrow {
         height: 30px;
         position: relative;
@@ -205,6 +212,19 @@ body {
         :active,
         :focus {
           box-shadow: rgba(255, 161, 21, 0.3) 0px 40px 50px;
+        }
+        &.video {
+          background-color: #ffffff4d;
+          line-height: 30px;
+          color: #eeeeee;
+          padding-left: 4px;
+          padding-right: 4px;
+          opacity: 1;
+          -webkit-transition: opacity 600ms, visibility 600ms;
+          transition: opacity 600ms, visibility 600ms;
+          &.hide {
+            opacity: 0;
+          }
         }
       }
     }
@@ -353,14 +373,14 @@ body {
     margin-bottom: 5rem;
   }
   .text-body {
-    min-height: 13vh;
+    min-height: 17vh;
   }
   .redes {
     display: flex;
     text-align: center;
     align-content: center;
     justify-content: space-evenly;
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
   /* Style all font awesome icons */
   .fa {

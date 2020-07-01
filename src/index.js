@@ -6,20 +6,20 @@ function addNeon() {
   const currentElement = document.getElementById('main-button');
   currentElement.classList.add('neon');
 }
-let messages = ['Estamos muy felices!', 'Al fin podemos compartir esto con ustedes <3','Pronto nos volveremos a ver las caras', 'Ustedes están listos?'];
+let messages = ['hey!', 'hola!', 'ya puedes escuchar el EP!', 'QUEEEE?!', 'si, mira...'];
 
 let options = [{
   strings: [''],
   typeSpeed: 40
 }, {
-  strings: ['hola. ^500 gracias por formar parte del inicio de esto. ^500 fue un proceso largo pero divertido', '^500 Haz click en la flecha para ver un poco más :)'],
+  strings: ['hola. esto es sueño en stereo! ^500 gracias por formar parte del inicio de nuestro viaje.', 'para nosotros fue un proceso largo pero divertido', '^500 haz click en la flecha para ver un poco más :)'],
   typeSpeed: 40,
   backSpeed: 10,
 }, {
   strings: [''],
   typeSpeed: 40
 }, {
-  strings: ['Esperamos lo disfruten tanto como nosotros'],
+  strings: ['Esperamos lo disfruten tanto como nosotros!'],
   typeSpeed: 40,
   backSpeed: 40,
   startDelay: 1700,
@@ -61,6 +61,10 @@ function addMessages(messages) {
       counter++;
     }, 2500);
   }, 30000);
+  setTimeout(function () {
+    let phone = document.querySelector(".video");
+    phone.classList.add('hide')
+  }, 10000);
 }
 const on = (element, event, selector, handler) => {
   element.addEventListener(event, e => {

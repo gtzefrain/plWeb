@@ -39,8 +39,8 @@
     font-weight: 500;
     text-align: left;
     overflow: hidden;
-    min-height: 30vh;
+    min-height: 40vh;
     @media (min-width: $tablet) and (   max-width: $desktop) {
-        min-height: 40vh;
+        min-height: 45vh;
     }
 }
